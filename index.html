@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История развития волейбола. Волейбол в России</title>
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #f8f9fa;
+            padding-top: 70px; /* место под фиксированную шапку */
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), #2980b9);
+            color: white;
+            padding: 0.9rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1.25;
+        }
+        
+        .logo span {
+            background: var(--secondary);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover, nav a.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/2/24/Arena_Carioca_1_-_V%C3%B4lei_-_Brasil_X_It%C3%A1lia_-_Grand_Prix_2016.jpg') center/cover no-repeat;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.95;
+        }
+        
+        .hero-meta {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+        
+        /* Sections */
+        section {
+            padding: 50px 0;
+        }
+        
+        section:nth-child(even) {
+            background: white;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+        }
+        
+        h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin: 30px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+            margin: 25px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+        }
+        
+        .img-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .img-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .img-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .img-card .caption {
+            padding: 12px 15px;
+            font-size: 0.9rem;
+            color: #555;
+            background: var(--light);
+        }
+        
+        .full-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #eaf2f8, #d4e6f1);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .timeline-item strong {
+            color: var(--primary);
+        }
+        
+        ul.facts {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul.facts li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--accent);
+        }
+        
+        .sources {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sources ol {
+            padding-left: 20px;
+        }
+        
+        .sources li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--secondary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            opacity: 0.9;
+            transition: 0.3s;
+        }
+        
+        .back-to-top:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .school-info {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                🏐 История волейбола <span>Проект</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro">Введение</a></li>
+                    <li><a href="#world">В мире</a></li>
+                    <li><a href="#russia">В России</a></li>
+                    <li><a href="#modern">Современность</a></li>
+                    <li><a href="#conclusion">Заключение</a></li>
+                    <li><a href="#sources">Источники</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="container">
+            <h1>История развития волейбола.<br>Волейбол в России</h1>
+            <p>Индивидуальный проект по предмету «Физическая культура»</p>
+            <div class="hero-meta">
+                Выполнил: Матвеев М.А., ученик 10а класса<br>
+                Руководитель: Габдрахманова И.А., учитель физической культуры<br>
+                МБОУ «СОШ № 26» г. Нижнекамск, 2025
+            </div>
+        </div>
+    </div>
+
+    <!-- Введение -->
+    <section id="intro">
+        <div class="container">
+            <h2>Введение</h2>
+            <p>Волейбол является одним из самых популярных и массовых видов спорта в мире и в Российской Федерации. Эта динамичная командная игра привлекает миллионы людей своей доступностью, зрелищностью и широкими возможностями для развития физических качеств: силы, ловкости, быстроты реакции, координации движений, а также для воспитания командного духа, дисциплины и волевых качеств.</p>
+            
+            <p>Волейбол входит в программу уроков физической культуры в общеобразовательных школах, в комплекс ГТО, в систему студенческого и профессионального спорта.</p>
+            
+            <div class="highlight-box">
+                <strong>Актуальность темы:</strong> знание истории вида спорта способствует более глубокому пониманию его правил, традиций и значения в системе физического воспитания. В 2023 году отечественный волейбол отметил 100-летие, что делает обращение к его истории особенно своевременным.
+            </div>
+            
+            <p><strong>Цель работы:</strong> изучить историю возникновения и развития волейбола в мире и в России, систематизировать основные этапы становления этого вида спорта и выявить его значение в системе физического воспитания.</p>
+            
+            <h3>Задачи проекта</h3>
+            <ul class="facts">
+                <li>Изучить историю изобретения волейбола и личность его создателя Уильяма Моргана</li>
+                <li>Проследить основные этапы развития волейбола в мире</li>
+                <li>Исследовать историю появления и становления волейбола в России</li>
+                <li>Рассмотреть международные успехи советских и российских сборных</li>
+                <li>Охарактеризовать современное состояние волейбола в Российской Федерации</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- История в мире -->
+    <section id="world">
+        <div class="container">
+            <h2>Глава 1. История возникновения и развития волейбола в мире</h2>
+            
+            <h3>1.1. Изобретение волейбола</h3>
+            
+            <div class="content-grid">
+                <div>
+                    <p>Изобретателем волейбола считается <strong>Уильям Дж. Морган</strong> (William G. Morgan) — преподаватель физического воспитания колледжа Ассоциации молодых христиан (YMCA) в городе Холиок (штат Массачусетс, США).</p>
+                    
+                    <p>Морган родился в 1870 году в городе Локпорт штата Нью-Йорк. Он учился в Международной школе YMCA в Спрингфилде, где познакомился с Джеймсом Нейсмитом — изобретателем баскетбола.</p>
+                    
+                    <p>В 1895 году Морган искал игру, которая была бы менее контактной и травмоопасной, чем баскетбол, но при этом достаточно активной для взрослых бизнесменов, посещавших занятия в YMCA. Он подвесил теннисную сетку на высоте около 197 см и предложил ученикам перебрасывать через неё баскетбольную камеру. Новую игру назвали «минтонет» (mintonette).</p>
+                </div>
+                <div class="img-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/William_G._Morgan_2.jpg" alt="Уильям Дж. Морган — изобретатель волейбола">
+                    <div class="caption">Уильям Дж. Морган — изобретатель волейбола (ок. 1890-х гг.)</div>
+                </div>
+            </div>
+            
+            <p>В 1896 году на конференции колледжей YMCA в Спрингфилде профессор Альфред Т. Хальстед предложил новое название — <strong>«волейбол»</strong> (volleyball — «удар по мячу с лёта»). Это название и закрепилось. В 1897 году в США были опубликованы первые официальные правила волейбола.</p>
+            
+            <div class="highlight-box">
+                <strong>Первые правила (1897):</strong> размер площадки ≈ 7,6 × 15,1 м, высота сетки — 198 см, мяч окружностью 63,5–68,5 см и массой около 340 г. Количество игроков и касаний не ограничивалось, очко засчитывалось только при собственной подаче, играли до 21 очка.
+            </div>
+            
+            <p>Первый специализированный волейбольный мяч был изготовлен фирмой A.G. Spalding & Bros. около 1900 года.</p>
+            
+            <h3>1.2. Этапы развития волейбола в мире</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Начало XX века</strong> — волейбол быстро распространился по миру: Канада, Япония, Филиппины, Бирма, Индия, Мексика, страны Европы.
+                </div>
+                <div class="timeline-item">
+                    <strong>1915–1925</strong> — сформировались основные правила: 6 игроков, не более 3 касаний, партия до 15 очков, высота сетки 243 см, размеры площадки 9 × 18 м.
+                </div>
+                <div class="timeline-item">
+                    <strong>1922</strong> — первые общенациональные соревнования в Бруклине (чемпионат YMCA).
+                </div>
+                <div class="timeline-item">
+                    <strong>18–20 апреля 1947</strong> — в Париже создана Международная федерация волейбола (FIVB). Первые члены: 14 стран.
+                </div>
+                <div class="timeline-item">
+                    <strong>1949</strong> — первый чемпионат мира среди мужчин (Прага). Победитель — сборная СССР.
+                </div>
+                <div class="timeline-item">
+                    <strong>1952</strong> — первый чемпионат мира среди женщин.
+                </div>
+                <div class="timeline-item">
+                    <strong>1964</strong> — волейбол включён в программу Олимпийских игр (Токио). Мужская сборная СССР — серебро, женская — золото.
+                </div>
+                <div class="timeline-item">
+                    <strong>1996</strong> — пляжный волейбол стал олимпийским видом спорта.
+                </div>
+            </div>
+            
+            <img src="https://images.pexels.com/photos/6203564/pexels-photo-6203564.jpeg" alt="Современный волейбол — атака и блок" class="full-img">
+            <p style="text-align:center; font-size:0.9rem; color:#666; margin-top:-10px;">Современный волейбол: атака и блок</p>
+            
+            <p>Сегодня FIVB объединяет более 220 национальных федераций. Волейбол входит в число самых популярных командных видов спорта планеты. Проводятся чемпионаты мира, континентальные первенства, Лига наций, клубные еврокубки.</p>
+        </div>
+    </section>
+
+    <!-- История в России -->
+    <section id="russia">
+        <div class="container">
+            <h2>Глава 2. История и развитие волейбола в России</h2>
+            
+            <h3>2.1. Появление волейбола в России</h3>
+            
+            <p>Волейбол появился в России в начале XX века. Считается, что игру привезли американские инструкторы. В декабре 1916 года в Петрограде американец Гарри Лонг продемонстрировал «волли-бол» на гимнастическом вечере общества «Маяк».</p>
+            
+            <p>Игра быстро распространилась: в 1914–1920 годах — в Казани, Нижнем Новгороде, на Дальнем Востоке. В Москве первые площадки возникли во дворах театров. Волейбол шутливо называли «игрой актёров».</p>
+            
+            <div class="highlight-box">
+                <strong>Официальная дата рождения отечественного волейбола — 28 июля 1923 года.</strong><br>
+                В этот день в Москве на Мясницкой улице состоялся первый официальный матч между командами ВХУТЕМАС и Государственной школы кинематографии (ГТК). Среди первых игроков были будущие известные актёры и художники: Николай Боголюбов, Борис Щукин, Георгий Нисский и другие.
+            </div>
+            
+            <p>В 2023 году российский волейбол отметил 100-летие. За сто лет игра прошла путь от любительских встреч актёров и студентов до одного из ведущих видов спорта страны.</p>
+            
+            <h3>2.2. Становление советского волейбола</h3>
+            
+            <p>В январе 1925 года Московский совет физкультуры разработал и утвердил первые официальные правила. С 1927 года регулярно проводились первенства Москвы. Важным событием стала Всесоюзная Спартакиада 1928 года, после которой популярность игры резко возросла.</p>
+            
+            <p>В 1932 году образована Всесоюзная секция волейбола (с 1959 года — Федерация волейбола СССР). Первым председателем стал А.А. Поташник. В 1933 году в Днепропетровске прошёл первый Всесоюзный волейбольный праздник (первый чемпионат СССР).</p>
+            
+            <p>К концу 1930-х годов волейбол стал одним из самых массовых видов спорта в стране. Соревнования проводились между сборными городов и спортивных обществ. Игра активно культивировалась в школах, вузах, на предприятиях и в воинских частях.</p>
+            
+            <h3>2.3. Международные успехи сборных СССР и России</h3>
+            
+            <div class="content-grid">
+                <div>
+                    <p>После Великой Отечественной войны советский волейбол вышел на мировую арену. В 1948 году СССР вступил в FIVB. Уже в 1949 году мужская сборная СССР стала чемпионом мира. В 1952 году золото завоевала и женская сборная.</p>
+                    
+                    <p>На Олимпийских играх 1964 года в Токио мужская сборная взяла серебро, женская — золото. В последующие десятилетия советские команды многократно становились олимпийскими чемпионами, чемпионами мира и Европы.</p>
+                    
+                    <p><strong>Выдающиеся советские волейболисты:</strong> Юрий Чесноков, Константин Рева, Юрий Поярков, Иван Бугаенков, Александр Савин, Вячеслав Зайцев, Инна Рыскаль, Нина Смолеева, Людмила Булдакова, Роза Салихова и многие другие.</p>
+                </div>
+                <div class="img-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/RIAN_archive_487748_USSR_vs._CSSR._1980_Olympic_Games.jpg" alt="СССР vs ЧССР, Олимпиада-1980">
+                    <div class="caption">Матч СССР — ЧССР на Олимпийских играх 1980 года в Москве</div>
+                </div>
+            </div>
+            
+            <p>После распада СССР правопреемницей стала Всероссийская федерация волейбола (ВФВ), созданная 22 августа 1991 года. Российские сборные продолжили победные традиции: мужская команда выиграла чемпионат мира 2002 года и Олимпийские игры 2012 года в Лондоне.</p>
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Campionatele_Europene_de_volei_din_1963_09.jpg" alt="Женская сборная СССР" class="full-img">
+            <p style="text-align:center; font-size:0.9rem; color:#666; margin-top:-10px;">Женская сборная СССР (Европейский чемпионат, 1963)</p>
+        </div>
+    </section>
+
+    <!-- Современный волейбол -->
+    <section id="modern">
+        <div class="container">
+            <h2>2.4. Современный волейбол в России</h2>
+            
+            <p>Сегодня волейбол остаётся одним из самых популярных видов спорта в России. Проводятся чемпионаты страны среди мужчин и женщин (Суперлига), Кубок России, молодёжные и детские соревнования.</p>
+            
+            <div class="content-grid">
+                <div>
+                    <p><strong>Сильнейшие клубы:</strong></p>
+                    <ul class="facts">
+                        <li>«Зенит-Казань» — многократный победитель Лиги чемпионов</li>
+                        <li>«Динамо» (Москва)</li>
+                        <li>«Локомотив» (Новосибирск)</li>
+                        <li>«Белогорье» (Белгород)</li>
+                        <li>«Урал» (Уфа)</li>
+                    </ul>
+                    
+                    <p>Волейбол широко представлен в системе школьного и студенческого спорта. Он включён в программу уроков физической культуры, в комплекс ГТО, в спартакиады школьников и студентов.</p>
+                </div>
+                <div class="img-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Volleyball9_block.jpg" alt="Блок в волейболе">
+                    <div class="caption">Блок — один из ключевых элементов современной игры</div>
+                </div>
+            </div>
+            
+            <p>Игра способствует развитию быстроты реакции, прыгучести, силы рук и плечевого пояса, координации движений, а также воспитывает командный дух, дисциплину, умение принимать быстрые решения.</p>
+            
+            <p>Пляжный волейбол также активно развивается. Появляются новые форматы — волейбол сидя (паралимпийский вид), мини-волейбол для детей, волейбол на снегу. Всероссийская федерация волейбола проводит большую работу по развитию детско-юношеского спорта.</p>
+            
+            <div class="highlight-box">
+                В школах и спортивных школах России работают тысячи тренеров по волейболу. Лучшие юные спортсмены попадают в составы юношеских и молодёжных сборных команд России.
+            </div>
+        </div>
+    </section>
+
+    <!-- Заключение -->
+    <section id="conclusion">
+        <div class="container">
+            <h2>Заключение</h2>
+            
+            <p>В результате выполнения проекта цель работы достигнута, поставленные задачи решены. Проведён систематизированный обзор истории возникновения и развития волейбола в мире и в России.</p>
+            
+            <p>Волейбол прошёл путь от простой развлекательной игры для бизнесменов в американском YMCA (1895 год, Уильям Морган) до олимпийского вида спорта, популярного на всех континентах. Создание Международной федерации волейбола в 1947 году, включение игры в программу Олимпийских игр в 1964 году способствовали её глобальному распространению.</p>
+            
+            <p>В России волейбол появился чуть более ста лет назад. Официальная дата рождения — <strong>28 июля 1923 года</strong>. Советские и российские волейболисты внесли огромный вклад в развитие мировой игры, неоднократно поднимаясь на высшие ступени пьедесталов чемпионатов мира и Олимпийских игр.</p>
+            
+            <p>Сегодня волейбол продолжает оставаться важным средством физического воспитания, укрепления здоровья и организации досуга. Изучение истории волейбола помогает лучше понять ценность этого вида спорта и вдохновляет на занятия физической культурой.</p>
+            
+            <div class="highlight-box">
+                <strong>Практическая значимость:</strong> материалы проекта могут быть использованы на уроках физической культуры, во внеурочной деятельности, при проведении спортивных праздников, викторин и тематических классных часов.
+            </div>
+        </div>
+    </section>
+
+    <!-- Источники -->
+    <section id="sources" style="background: white;">
+        <div class="container">
+            <h2>Список использованных источников</h2>
+            <div class="sources">
+                <ol>
+                    <li>Всероссийская федерация волейбола : официальный сайт. — URL: <a href="https://volley.ru" target="_blank">https://volley.ru</a></li>
+                    <li>История отечественного волейбола // Всероссийская федерация волейбола. — URL: <a href="https://volley.ru/federation/history" target="_blank">https://volley.ru/federation/history</a></li>
+                    <li>Клещёв Ю.Н. Волейбол. — М. : Физкультура и спорт, 2005. — 400 с.</li>
+                    <li>Официальные правила волейбола. — М. : ВФВ, 2021. — 64 с.</li>
+                    <li>Фурманов А.Г. Волейбол. — М. : Высшая школа, 1983. — 192 с.</li>
+                    <li>Железняк Ю.Д. Юный волейболист. — М. : Физкультура и спорт, 1988. — 192 с.</li>
+                    <li>Беляев А.В., Савин М.В. Волейбол : учебник для вузов. — М. : Физкультура, образование и наука, 2000. — 368 с.</li>
+                    <li>Volleyball in Russia // Wikipedia. — URL: <a href="https://en.wikipedia.org/wiki/Volleyball_in_Russia" target="_blank">https://en.wikipedia.org/wiki/Volleyball_in_Russia</a></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Индивидуальный проект</strong></p>
+            <p>«История развития волейбола. Волейбол в России»</p>
+            <p class="school-info">
+                МБОУ «Средняя общеобразовательная школа № 26<br>
+                с углублённым изучением отдельных предметов»<br>
+                Нижнекамского муниципального района Республики Татарстан<br>
+                Нижнекамск, 2025
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.7;">
+                Сайт создан на основе материалов проекта ученика 10а класса Матвеева М.А.
+            </p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" title="Наверх">↑</a>
+</body>
+</html>
